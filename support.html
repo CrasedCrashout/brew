@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Support - Game Boy Advance Emulator | Elixir Studios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                background: linear-gradient(135deg, #0a0e27 0%, #1a0033 25%, #0d1b3d 50%, #1a0033 75%, #0a0e27 100%);
+                background-size: 400% 400%;
+                animation: space-gradient 15s ease infinite;
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+                color: #fff;
+            }
+
+            @keyframes space-gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            /* Starfield background */
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+                background-repeat: repeat;
+                background-size: 200px 200px;
+                animation: twinkle 5s ease-in-out infinite;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            @keyframes twinkle {
+                0%, 100% { opacity: 0.3; }
+                50% { opacity: 0.8; }
+            }
+
+            .container {
+                position: relative;
+                z-index: 1;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+            header {
+                text-align: center;
+                margin-bottom: 40px;
+                text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 0 40px rgba(100, 150, 255, 0.4);
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+                color: #64c8ff;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            p.subtitle {
+                font-size: 1.1em;
+                color: #a8d8ff;
+                font-weight: normal;
+            }
+
+            .support-form {
+                background: rgba(20, 40, 80, 0.6);
+                border: 2px solid rgba(100, 200, 255, 0.5);
+                border-radius: 10px;
+                padding: 30px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(100, 200, 255, 0.2);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #64c8ff;
+                font-weight: bold;
+                font-size: 0.95em;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid rgba(100, 200, 255, 0.4);
+                border-radius: 5px;
+                background: rgba(10, 20, 50, 0.8);
+                color: #a8d8ff;
+                font-family: 'Arial', sans-serif;
+                font-size: 0.95em;
+                transition: all 0.3s ease;
+            }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            select:focus,
+            textarea:focus {
+                outline: none;
+                border-color: rgba(100, 220, 255, 0.8);
+                background: rgba(10, 20, 50, 0.95);
+                box-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 150px;
+                font-family: 'Arial', sans-serif;
+            }
+
+            button {
+                background: linear-gradient(135deg, rgba(100, 200, 255, 0.8), rgba(100, 150, 255, 0.6));
+                border: 1px solid rgba(100, 200, 255, 0.8);
+                color: #fff;
+                padding: 12px 40px;
+                font-size: 1em;
+                border-radius: 5px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                margin-right: 10px;
+            }
+
+            button:hover {
+                background: linear-gradient(135deg, rgba(100, 220, 255, 1), rgba(100, 170, 255, 0.8));
+                box-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
+                transform: translateY(-2px);
+            }
+
+            .button-group {
+                display: flex;
+                gap: 10px;
+                margin-top: 30px;
+            }
+
+            .button-secondary {
+                background: linear-gradient(135deg, rgba(150, 100, 200, 0.6), rgba(120, 80, 180, 0.5));
+                border: 1px solid rgba(150, 100, 200, 0.6);
+            }
+
+            .button-secondary:hover {
+                background: linear-gradient(135deg, rgba(170, 120, 220, 0.8), rgba(140, 100, 200, 0.7));
+                box-shadow: 0 0 15px rgba(150, 100, 200, 0.6);
+            }
+
+            .success-message {
+                display: none;
+                background: rgba(100, 200, 100, 0.2);
+                border: 1px solid rgba(100, 200, 100, 0.6);
+                color: #a8ffa8;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .error-message {
+                display: none;
+                background: rgba(255, 100, 100, 0.2);
+                border: 1px solid rgba(255, 100, 100, 0.6);
+                color: #ffa8a8;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .faq-section {
+                margin-top: 50px;
+                padding-top: 30px;
+                border-top: 1px solid rgba(100, 200, 255, 0.3);
+            }
+
+            .faq-section h2 {
+                color: #64c8ff;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .faq-item {
+                margin-bottom: 20px;
+                background: rgba(20, 40, 80, 0.4);
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid rgba(100, 200, 255, 0.5);
+            }
+
+            .faq-question {
+                color: #a8d8ff;
+                font-weight: bold;
+                margin-bottom: 8px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+
+            .faq-question:hover {
+                color: #64c8ff;
+            }
+
+            .faq-answer {
+                color: #7aa8d8;
+                display: none;
+            }
+
+            .faq-answer.active {
+                display: block;
+            }
+
+            footer {
+                text-align: center;
+                margin-top: 60px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(100, 200, 255, 0.3);
+                color: #7aa8d8;
+                font-size: 0.9em;
+            }
+
+            a {
+                color: #64c8ff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            a:hover {
+                color: #a8d8ff;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Support</h1>
+                <p class="subtitle">Need help? Submit a support ticket below</p>
+            </header>
+
+            <div class="support-form">
+                <div class="success-message" id="successMessage">
+                    Thank you! Your support ticket has been submitted. We'll get back to you soon.
+                </div>
+                <div class="error-message" id="errorMessage">
+                    Please fill in all required fields.
+                </div>
+
+                <form id="supportForm" action="https://formspree.io/f/xykezbry" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category...</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Gameplay Issue">Gameplay Issue</option>
+                            <option value="Audio Problem">Audio Problem</option>
+                            <option value="Graphics Issue">Graphics Issue</option>
+                            <option value="Performance Problem">Performance Problem</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Description *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit">Submit Ticket</button>
+                        <button type="reset" class="button-secondary">Clear Form</button>
+                        <a href="index.html" style="padding: 12px 40px; border: 1px solid rgba(150, 100, 200, 0.6); border-radius: 5px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: all 0.3s ease;">Back to Home</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">How do I save my progress?</div>
+                    <div class="faq-answer">Your game progress is automatically saved to your browser's local storage. The save data persists between sessions.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Which games are compatible?</div>
+                    <div class="faq-answer">All games in our library are tested and compatible with the emulator. You can find a full list on the home page organized by category.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Can I use a controller?</div>
+                    <div class="faq-answer">Yes! You can use a standard gamepad or controller. Press the keys shown in the emulator interface, or map your controller buttons accordingly.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">What should I do if a game won't load?</div>
+                    <div class="faq-answer">Try refreshing the page and selecting the game again. If the problem persists, please submit a support ticket with the game name and the error message you're seeing.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Is my data private?</div>
+                    <div class="faq-answer">Game saves are stored locally on your device. We don't collect or store personal data from your gameplay.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">How long does it take to get support?</div>
+                    <div class="faq-answer">We aim to respond to all support tickets within 24-48 hours. Complex issues may take longer to resolve.</div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2026 Elixir Studios | Game Boy Advance Emulator</p>
+                <p><a href="index.html">Home</a> | <a href="support.html">Support</a></p>
+            </footer>
+        </div>
+
+        <script>
+            function toggleFAQ(element) {
+                const answer = element.nextElementSibling;
+                answer.classList.toggle('active');
+                element.style.color = answer.classList.contains('active') ? '#64c8ff' : '#a8d8ff';
+            }
+
+            document.getElementById('supportForm').addEventListener('submit', function(e) {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const category = document.getElementById('category').value.trim();
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                const errorMessage = document.getElementById('errorMessage');
+                
+                if (!name || !email || !category || !subject || !message) {
+                    e.preventDefault();
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                
+                errorMessage.style.display = 'none';
+            });
+
+            // Listen for Formspree submission response
+            window.addEventListener('load', function() {
+                const form = document.getElementById('supportForm');
+                
+                // Check for Formspree success parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('submitted') === 'true' || window.location.hash === '#success') {
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.reset();
+                    setTimeout(function() {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                }
+            });
+        </script>
+    </body>
+</html>
