@@ -13,7 +13,7 @@ How to access games:
 
 4. In Visual Studio Code, find the extensions tab and download "Live Server" 
 
-5. Open the file you just downloaded 
+5. Open the file you just downloaded in Visual Studio Code
 
 6. In the bottom right, click "Go Live"
 
