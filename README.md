@@ -1,6 +1,6 @@
 # Welcome to Elixir Studios' GBA Emulator!
 
-We hope you enjoy over 50+ games! Found a bug? Feature request? Submit a ticket via the Support page!
+We hope you enjoy over 60+ games! Found a bug? Feature request? Game Request? Submit a ticket via the Support page!
 
 Our games cannot be blocked, everything runs locally in your browser!
 
