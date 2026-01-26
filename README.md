@@ -2,7 +2,7 @@
 
 We hope you enjoy over 100+ games! Found a bug? Feature request? Game Request? Submit a ticket via the Support page!
 
-Our games cannot be blocked, everything runs locally in your browser!
+We do not collect play data or personal info, everything runs locally in your browser!
 
 How to access games:
 1. Go to the github.com/CrazedCrashout/elixir-GBA/releases
