@@ -5,7 +5,7 @@ We hope you enjoy over 100+ games! Found a bug? Feature request? Game Request? S
 We do not collect play data or personal info, everything runs locally in your browser!
 
 How to access games:
-1. Go to the github.com/CrazedCrashout/elixir-GBA/releases
+1. Go to the github.com/CrasedCrashout/elixir-GBA/releases
 
 2. Select download as .zip 
 
