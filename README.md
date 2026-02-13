@@ -5,7 +5,7 @@ We hope you enjoy over 100+ games! Found a bug? Feature request? Game Request? S
 We do not collect play data or personal info, everything runs locally in your browser!
 
 How to access games:
-1. Go to the https://github.com/CrasedCrashout/brew-ElixirStudios/releases
+1. Go to the https://github.com/CrasedCrashout/brew/releases
 
 2. Select download as .zip and extract the file
 
