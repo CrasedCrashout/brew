@@ -1,5 +1,13 @@
 # brew | Elixir Studios' Legacy Nintendo Emulator
 
+Why brew?
+
+brew offers HUNDREDS of Legacy Nintendo games, from the NES all the way to n64!
+
+Easy loading and local hosting provides ease-of-use and privacy
+
+
+
 We hope you enjoy over 100+ games! Found a bug? Feature request? Game Request? Submit a ticket via the Support page!
 
 We do not collect play data or personal info, everything runs locally in your browser!
@@ -22,3 +30,5 @@ If you followed all of these steps correctly, you should load into the latest ve
 
 
 Please note that games do not save - we are working on a backend to fix this. The best solution to save data loss is to not close the tab or let your computer restart.
+
+Note that we do not collect play data. The only data we collect from users is e-mail addresses and Names (Only given to us if you fill out a support ticket) We use formspree to collect forms, we do not collect forms or data at all.
