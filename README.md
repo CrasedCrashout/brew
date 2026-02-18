@@ -1,16 +1,7 @@
 # brew | Elixir Studios' Legacy Nintendo Emulator
 
-Why brew?
-
-brew offers HUNDREDS of Legacy Nintendo games, from the NES all the way to n64!
-
-Easy loading and local hosting provides ease-of-use and privacy
-
-
-
 We hope you enjoy over 100+ games! Found a bug? Feature request? Game Request? Submit a ticket via the Support page!
 
-We do not collect play data or personal info, everything runs locally in your browser!
 
 How to access brew:
 1. Go to the https://github.com/CrasedCrashout/brew/releases
