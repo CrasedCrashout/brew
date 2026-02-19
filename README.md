@@ -12,7 +12,7 @@ How to access brew:
 
 4. In Visual Studio Code, find the extensions tab and download "Live Server" 
 
-5. Open the file you just downloaded/extracted in Visual Studio Code
+5. Open the folder you just downloaded/extracted in Visual Studio Code
 
 6. In the bottom right, click "Go Live"
 
